@@ -6,8 +6,10 @@ const index = (req, res) => {
 
 const show = (req, res) => {
     const postId = req.params.id;
+
     const foundPost = postList.find(post => post.id === postId)
-    res.json(foundPost);
+    foundPost === undefined ? res.sendStatus(404) : res.json(foundPost);
+
 };
 
 const create = (req, res) => {
