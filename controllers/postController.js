@@ -27,7 +27,9 @@ const modify = (req, res) => {
 
 const destroy = (req, res) => {
     const postId = req.params.id;
-    res.json(`Cancellazione del post numero ${postId}`);
+    postId === null ? res.sendStatus(404) : postList.splice((postId - 1), 1);
+    console.log(postList);
+    res.sendStatus(204)
 };
 
 module.exports = {
