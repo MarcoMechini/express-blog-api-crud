@@ -11,6 +11,14 @@ app.get("/", (req, res) => {
     res.json("hello")
 })
 
+//nella route bacheca abbiamo come risposta un json che ha come parametri post e la lunghezza
+app.get('/bacheca', (req, res) => {
+    res.json({
+        posts: post,
+        length: post.length,
+    })
+});
+
 app.listen(port, () => {
     console.log("server on");
 })

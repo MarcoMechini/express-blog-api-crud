@@ -1,38 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const postList = require("../data/posts");
+const controller = require("../controllers/postController")
 
 //index
-router.get('/', (req, res) => {
-    res.json(postList)
-})
+router.get('/', controller.index);
 
 //show
-router.get('/:id', (req, res) => {
-    const postId = req.params.id;
-    const foundPost = postList.find(post => post.id === postId)
-    res.json(foundPost);
-})
+router.get('/:id', controller.show);
 
 //create
-router.post("/", (req, res) => {
-    res.json(`Modifica dei dati del post numero ${postId}`)
-})
+router.post("/", controller.create);
 
 //update
-router.put("/:id", (req, res) => {
-    res.json(`Modifica dell'curPosto del post numero ${postId}`)
-})
+router.put("/:id", controller.update);
 
 //modify
-router.patch("/:id", (req, res) => {
-    const postId = req.params.id;
-    res.json(`Modifica dell'curPosto del post numero ${postId}`);
-})
+router.patch("/:id", controller.modify);
 
 //destroy
-router.delete("/:id", (req, res) => {
-    const postId = req.params.id;
-    res.json(`Cancellazione del post numero ${postId}`);
-})
+router.delete("/:id", controller.destroy);
+
 module.exports = router
