@@ -14,7 +14,6 @@ const show = (req, res) => {
 
 const create = (req, res) => {
     const objParams = req.body
-    // console.log(objParams);
 
     const nexId = postList[postList.length - 1].id + 1
     console.log(nexId);
@@ -29,8 +28,21 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-    const postId = req.params.id;
-    res.json(`Modifica dell'elemento del post numero ${postId}`)
+    const postId = parseInt(req.params.id);
+    const objParams = req.body
+
+    const indexUpdate = postList.findIndex((elem) => elem.id === postId);
+
+    if (indexUpdate === -1) {
+        res.sendStatus(404)
+    } else {
+        postList[indexUpdate] = {
+            id: postId,
+            ...objParams
+        }
+        res.sendStatus(204);
+    }
+
 };
 
 const modify = (req, res) => {
@@ -40,9 +52,14 @@ const modify = (req, res) => {
 
 const destroy = (req, res) => {
     const postId = parseInt(req.params.id);
-    postId === null ? res.sendStatus(404) : postList.splice((postId - 1), 1);
-    console.log(postList);
-    res.sendStatus(204)
+    const indexDelete = postList.findIndex((elem) => elem.id === postId);
+    if (indexDelete === -1) {
+        res.sendStatus(404)
+    } else {
+        postList.splice((indexDelete), 1)
+        console.log(postList);
+        res.sendStatus(204);
+    }
 };
 
 module.exports = {
