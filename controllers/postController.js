@@ -12,17 +12,20 @@ const show = (req, res) => {
 
 };
 
+//
 const create = (req, res) => {
-    res.json(`Modifica dei dati del post numero`)
+    const objParams = req.body
+    console.log(objParams);
+    res.json(objParams)
 };
 
 const update = (req, res) => {
-    res.json(`Modifica dell'curPosto del post numero ${postId}`)
+    res.json(`Modifica dell'elemento del post numero ${postId}`)
 };
 
 const modify = (req, res) => {
     const postId = req.params.id;
-    res.json(`Modifica dell'curPosto del post numero ${postId}`);
+    res.json(`Modifica di alcuni parametri del post numero ${postId}`);
 };
 
 const destroy = (req, res) => {

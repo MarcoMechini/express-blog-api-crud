@@ -1,5 +1,6 @@
 const posts = [
     {
+        id: '1',
         title: "Viaggio in Giappone",
         content: "Un'esperienza indimenticabile tra i templi di Kyoto e i grattacieli di Tokyo.",
         image: "images/ciambellone.jpeg",
@@ -9,9 +10,9 @@ const posts = [
             "cultura",
             "avventura"
         ],
-        id: '1'
     },
     {
+        id: '2',
         title: "Ricetta della Torta al Cioccolato",
         content: "Scopri come preparare una torta al cioccolato soffice e deliziosa in pochi semplici passi.",
         image: "images/cracker_barbabietola.jpeg",
@@ -21,9 +22,9 @@ const posts = [
             "cioccolato",
             "ricette"
         ],
-        id: '2'
     },
     {
+        id: '3',
         title: "Guida alla Programmazione in Python",
         content: "Tutto quello che devi sapere per iniziare a programmare con Python.",
         image: "images/pane_fritto_dolce.jpeg",
@@ -33,9 +34,9 @@ const posts = [
             "tutorial",
             "tecnologia"
         ],
-        id: '3'
     },
     {
+        id: '4',
         title: "Le Migliori Serie TV del 2024",
         content: "Una selezione delle serie TV più attese e amate del 2024.",
         image: "images/pasta_barbabietola.jpeg",
@@ -45,9 +46,9 @@ const posts = [
             "recensioni",
             "2024"
         ],
-        id: '4'
     },
     {
+        id: '5',
         title: "Come Mantenersi in Forma con lo Yoga",
         content: "I benefici dello yoga per il corpo e la mente, con esercizi adatti a tutti.",
         image: "images/torta_paesana.jpeg",
@@ -56,8 +57,7 @@ const posts = [
             "yoga",
             "fitness",
             "salute"
-        ],
-        id: '5'
+        ]
     }
 ];
 
