@@ -32,16 +32,11 @@ const update = (req, res) => {
     const objParams = req.body
 
     const indexUpdate = postList.findIndex((elem) => elem.id === postId);
-
-    if (indexUpdate === -1) {
-        res.sendStatus(404)
-    } else {
-        postList[indexUpdate] = {
-            id: postId,
-            ...objParams
-        }
-        res.sendStatus(204);
+    postList[indexUpdate] = {
+        id: postId,
+        ...objParams
     }
+    res.sendStatus(204);
 
 };
 
@@ -53,13 +48,10 @@ const modify = (req, res) => {
 const destroy = (req, res) => {
     const postId = parseInt(req.params.id);
     const indexDelete = postList.findIndex((elem) => elem.id === postId);
-    if (indexDelete === -1) {
-        res.sendStatus(404)
-    } else {
-        postList.splice((indexDelete), 1)
-        console.log(postList);
-        res.sendStatus(204);
-    }
+
+    postList.splice((indexDelete), 1)
+    console.log(postList);
+    res.sendStatus(204);
 };
 
 module.exports = {

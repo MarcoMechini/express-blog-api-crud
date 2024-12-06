@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const post = require("./data/posts");
 const postsRouter = require("./routers/routersPosts");
+const handleError = require("./middleware/handleError");
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -19,6 +20,9 @@ app.get('/bacheca', (req, res) => {
         length: post.length,
     })
 });
+
+//non mi è moplto chiaro quando verrà richiamato questo
+app.use(handleError)
 
 app.listen(port, () => {
     console.log("server on");
