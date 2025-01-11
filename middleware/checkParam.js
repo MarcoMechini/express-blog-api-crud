@@ -3,8 +3,8 @@ const postList = require("../data/posts")
 const checkParam = (req, res, next) => {
     const postId = parseInt(req.params.id);
     const indexUpdate = postList.find((elem) => elem.id === postId);
-
-    if (indexUpdate) {
+    const slugCheck = postList.find((elem) => elem.slug === req.params.slug);
+    if (indexUpdate || slugCheck) {
         next();
     } else {
         res.statusCode = 404

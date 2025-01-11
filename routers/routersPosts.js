@@ -7,7 +7,7 @@ const checkParam = require("../middleware/checkParam");
 router.get('/', controller.index);
 
 //show
-router.get('/:id', checkParam, controller.show);
+router.get('/:slug', checkParam, controller.show);
 
 //create
 router.post("/", controller.create);

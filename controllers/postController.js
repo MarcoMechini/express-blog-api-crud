@@ -5,28 +5,28 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    const postId = parseInt(req.params.id);
+    const slug = req.params.slug;
+    const foundPost = postList.find(post => post.slug === slug)
 
-    const foundPost = postList.find(post => post.id === postId)
     foundPost === undefined ? res.sendStatus(404) : res.json(foundPost);
-
 };
 
 const create = (req, res) => {
     const objParams = req.body
+
     let nexId = 0;
     if (postList.length) {
-        console.log('dentro if');
         nexId = postList[postList.length - 1].id + 1
     } else {
-        console.log('dentro else');
         nexId = 1;
     }
 
     const newPost = {
         id: nexId,
+        slug: objParams.title.split(" ").join("-").toLowerCase(),
         ...objParams
     }
+    console.log(newPost);
     postList.push(newPost);
     res.statusCode = 201;
     res.json(newPost)
