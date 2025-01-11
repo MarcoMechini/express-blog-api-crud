@@ -14,9 +14,14 @@ const show = (req, res) => {
 
 const create = (req, res) => {
     const objParams = req.body
-
-    const nexId = postList[postList.length - 1].id + 1
-    console.log(nexId);
+    let nexId = 0;
+    if (postList.length) {
+        console.log('dentro if');
+        nexId = postList[postList.length - 1].id + 1
+    } else {
+        console.log('dentro else');
+        nexId = 1;
+    }
 
     const newPost = {
         id: nexId,
@@ -24,7 +29,7 @@ const create = (req, res) => {
     }
     postList.push(newPost);
     res.statusCode = 201;
-    res.json("New post created")
+    res.json(newPost)
 };
 
 const update = (req, res) => {
